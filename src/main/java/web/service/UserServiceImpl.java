@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    final UserDao userDao;
+    private final UserDao userDao;
 
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public User getUser(long id) {
         return userDao.getUserById(id);
     }

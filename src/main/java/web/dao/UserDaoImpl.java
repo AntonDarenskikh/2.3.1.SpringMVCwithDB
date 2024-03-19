@@ -5,7 +5,6 @@ import web.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -36,7 +35,6 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void updateUser(User user) {
-        System.out.println(user.getId() + user.getAge());
         entityManager.merge(user);
     }
 }
